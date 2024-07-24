@@ -11,9 +11,9 @@ class PostService {
 
     public function __construct(private Post $post){}
 
-    public function create(array $data): Post {
+    public function create(array $post): Post {
         try {
-            return $this->post->create($data);
+            return $this->post->create($post);
         } catch (PDOException $e) {
             Log::error($e->getMessage());
             throw $this->databaseException();

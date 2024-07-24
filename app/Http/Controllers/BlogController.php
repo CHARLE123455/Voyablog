@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\BlogService;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -28,13 +28,13 @@ class BlogController extends Controller
         return response()->json(['status' => true, 'data' => $blog], 201);
     }
 
-    public function show(int $id): JsonResponse
+    public function show($id): JsonResponse
     {
         $blog = $this->blogService->getById($id);
         return response()->json(['status' => true, 'data' => $blog]);
     }
 
-    public function update(Request $request, int $id): JsonResponse
+    public function update(Request $request, $id): JsonResponse
     {
         $validatedData = $request->validate([
             'title' => 'string|max:255',
@@ -46,9 +46,10 @@ class BlogController extends Controller
         return response()->json(['status' => true, 'data' => $blog]);
     }
 
-    public function destroy(int $id): JsonResponse
+    public function destroy($id): JsonResponse
     {
         $this->blogService->delete($id);
         return response()->json(['status' => true, 'message' => 'Blog deleted successfully']);
     }
 }
+
