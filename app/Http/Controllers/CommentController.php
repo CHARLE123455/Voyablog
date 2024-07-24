@@ -10,7 +10,7 @@ class CommentController extends Controller
 {
     public function __construct(private CommentService $commentService) {}
 
-    public function store(Request $request, int $postId): JsonResponse
+    public function store(Request $request, $postId): JsonResponse
     {
         $validatedData = $request->validate([
             'content' => 'required|string',
@@ -21,7 +21,7 @@ class CommentController extends Controller
         return response()->json(['status' => true, 'data' => $comment], 201);
     }
 
-    public function index(int $postId): JsonResponse
+    public function index( $postId): JsonResponse
     {
         $comments = $this->commentService->getAllCommentsByPostId($postId);
         return response()->json(['status' => true, 'data' => $comments]);

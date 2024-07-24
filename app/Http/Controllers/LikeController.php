@@ -10,13 +10,13 @@ class LikeController extends Controller
 {
     public function __construct(private LikeService $likeService) {}
 //like post
-    public function store(int $postId): JsonResponse
+    public function store( $postId): JsonResponse
     {
         $like = $this->likeService->likePost($postId);
         return response()->json(['status' => true, 'data' => $like], 201);
     }
 // unlike post
-    public function destroy(int $likeId): JsonResponse
+    public function destroy($likeId): JsonResponse
     {
         $this->likeService->unlikePost($likeId);
         return response()->json(['status' => true, 'message' => 'Post unliked successfully']);

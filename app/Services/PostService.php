@@ -29,7 +29,7 @@ class PostService {
         }
     }
 
-    public function getById(int $id): ?Post {
+    public function getById($id): ?Post {
         try {
             $post = $this->post->with("likes", "comments")->find($id);
             if ($post == null) {
@@ -41,7 +41,7 @@ class PostService {
         }
     }
 
-    public function update(int $id, array $data): Post {
+    public function update($id, array $data): Post {
         try {
             $post = $this->validatePost($id);
             $post->update($data);
@@ -52,7 +52,7 @@ class PostService {
         }
     }
 
-    public function delete(int $id): void {
+    public function delete($id): void {
         try {
             $post = $this->validatePost($id);
             $post->delete();
@@ -80,7 +80,7 @@ class PostService {
         );
     }
 
-    private function validatePost(int $id): Post {
+    private function validatePost($id): Post {
         $post = $this->post->find($id);
         if (!$post) {
             throw $this->invalidException();

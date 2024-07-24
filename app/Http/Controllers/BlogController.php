@@ -30,12 +30,14 @@ class BlogController extends Controller
 
     public function show($id): JsonResponse
     {
+        $id = (int) $id;
         $blog = $this->blogService->getById($id);
         return response()->json(['status' => true, 'data' => $blog]);
     }
 
     public function update(Request $request, $id): JsonResponse
     {
+        $id = (int) $id;
         $validatedData = $request->validate([
             'title' => 'string|max:255',
             'description' => 'string',
@@ -48,6 +50,7 @@ class BlogController extends Controller
 
     public function destroy($id): JsonResponse
     {
+        $id = (int) $id;
         $this->blogService->delete($id);
         return response()->json(['status' => true, 'message' => 'Blog deleted successfully']);
     }

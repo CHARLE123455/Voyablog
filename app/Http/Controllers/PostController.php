@@ -30,13 +30,13 @@ class PostController extends Controller
         return response()->json(['status' => true, 'data' => $post], 201);
     }
 
-    public function show(int $id): JsonResponse
+    public function show( $id): JsonResponse
     {
         $post = $this->postService->getById($id);
         return response()->json(['status' => true, 'data' => $post]);
     }
 
-    public function update(Request $request, int $id): JsonResponse
+    public function update(Request $request, $id): JsonResponse
     {
         $validatedData = $request->validate([
             'title' => 'string|max:255',
@@ -49,7 +49,7 @@ class PostController extends Controller
         return response()->json(['status' => true, 'data' => $post]);
     }
 
-    public function destroy(int $id): JsonResponse
+    public function destroy($id): JsonResponse
     {
         $this->postService->delete($id);
         return response()->json(['status' => true, 'message' => 'Post deleted successfully']);

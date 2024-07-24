@@ -32,6 +32,7 @@ class BlogService {
 
     public function getById($id): ?Blog
 {
+    $id = (int) $id;
     try {
         $blog = $this->blog->find($id);
         if (!$blog) {
@@ -46,6 +47,7 @@ class BlogService {
 
 public function update($id, array $data): Blog
 {
+    $id = (int) $id;
     try {
         $blog = $this->blog->find($id);
         if (!$blog) {
@@ -66,6 +68,7 @@ public function update($id, array $data): Blog
 
 public function delete($id): void
 {
+    $id = (int) $id;
     try {
         $blog = $this->blog->find($id);
         if (!$blog) {

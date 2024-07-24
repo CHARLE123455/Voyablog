@@ -14,7 +14,7 @@ use PDOException;
 
 class LikeService {
 
-    public function likePost(int $postId) {
+    public function likePost($postId) {
         try {
             $post = Post::find($postId);
 
@@ -45,7 +45,7 @@ class LikeService {
         }
     }
 
-    public function unlikePost(int $likeId) {
+    public function unlikePost($likeId) {
         try {
             $like = Like::find($likeId);
 
