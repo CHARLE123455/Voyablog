@@ -1,4 +1,6 @@
 VoyaBlog API
+
+
 VoyaBlog is a simple blog and post management API developed using Laravel 11 and MySQL. It allows users to create, read, update, and delete blogs and posts, as well as interact with posts through likes and comments.
 
 Features
@@ -16,7 +18,7 @@ Installation
 Clone the Repository
 
 
-git clone https://github.com/yourusername/voyablog.git
+git clone https://github.com/CHARLE123455/voyablog.git
 cd voyablog
 Install Dependencies
 
