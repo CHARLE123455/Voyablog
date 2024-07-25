@@ -30,6 +30,7 @@ class PostService {
     }
 
     public function getById($id): ?Post {
+        $id = (int) $id;
         try {
             $post = $this->post->with("likes", "comments")->find($id);
             if ($post == null) {
@@ -42,6 +43,7 @@ class PostService {
     }
 
     public function update($id, array $data): Post {
+        $id = (int) $id;
         try {
             $post = $this->validatePost($id);
             $post->update($data);
@@ -53,6 +55,7 @@ class PostService {
     }
 
     public function delete($id): void {
+        $id = (int) $id;
         try {
             $post = $this->validatePost($id);
             $post->delete();
