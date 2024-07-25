@@ -30,7 +30,7 @@ class BlogService {
         }
     }
 
-    public function getById($id): ?Blog
+    public function getById($id): Blog
 {
     $id = (int) $id;
     try {
