@@ -10,12 +10,12 @@ use PDOException;
 
 class CommentService
 {
-    public function addCommentToPost($data, $postId)
+    public function addCommentToPost($comment, $postId)
     {
         try {
             $post = Post::find($postId);
             if ($post) {
-                return $post->comments()->create($data);
+                return $post->comments()->create($comment);
             } else {
                 $this->invalidPostException();
             }
